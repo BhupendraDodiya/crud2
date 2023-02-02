@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="{% static 'emp.css' %}"/>
+</head>
+<body>
+    <div class="login-div">
+        <form method="post" action="/log_detail/">
+            {% csrf_token %}
+            {% if messages %}
+                {% for msg in messages%}
+                    <strong>Error : {{msg}}</strong>
+                {% endfor%}
+            {% endif %} 
+            <h2><u>Login Form</u></h2>
+            <input type="email" placeholder="enter email" name="e"  required /><br><br>
+            <input type="password" placeholder="enter password" name="p"  required /><br><br>
+            <input type="submit" value="submit" class="btn"/><br><br>
+            <a href="/" class="signup-link">signup</a>
+            <a href="/login/"  class="login-link">login</a>
+            <a href="/table/"  class="show-link">show details</a>
+        </form>
+    </div>
+</body>
+</html>

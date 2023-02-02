@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Update Form</title>
+    <link rel="stylesheet" href="{% static 'emp.css' %}"/>
+</head>
+
+<body>
+    <div class="signup_div">
+        <form method="post" action="/update_form/">
+            {% csrf_token %}
+            {% if messages %}
+                {% for i in messages%}
+                    <strong>Error : {{i}}</strong>
+                {% endfor%}
+            {% endif %} 
+            <h2><u>UPDATE FORM</u></h2>
+            <input type="hidden" name='u'  value="{{da.id}}"/>
+            <input type="text" placeholder="enter name" name="n" /><br><br>
+            <input type="date" name="d" /><br><br>
+            <input type="text" placeholder="contact number" name="c" /><br><br>
+            <input type="email" placeholder="enter email" name="e" /><br><br>
+            <input type="submit" value="submit" class="btn"/><br><br>
+            <a href="/" class="signup-link">signup</a>
+            <a href="/login/"  class="login-link">login</a>
+            <a href="/table/"  class="show-link">show details</a>
+        </form>
+    </div>
+</body>
+
+</html>
